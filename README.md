@@ -54,9 +54,9 @@ $c->get('db');  // object(PDO)
 ```
 
 
-Sometimes, you are not sure if an DB connection should initialize while program runs. Maybe connect to DB while somewhere really need it.
+Sometimes, you are not sure if an DB connection should initialize while program start up. Maybe connect to DB when it is really needed is a better idea.
 
-Use a `Closure` to let container known you want to initialize later:
+Use a `Closure` to let container known you want to initialize it later:
 
 ```php
 $c['db'] = function () {
