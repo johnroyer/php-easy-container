@@ -6,6 +6,31 @@
 An implement for singleton and some features.
 
 
-# Requirement
+## Requirement
 
 - PHP >= 5.6
+
+
+## Simple Usage
+
+Put whatever you want into container:
+
+```php
+use \Zeroplex\Container\Container;
+
+$c = new Container;
+
+// set value as singleton
+$c['pi'] = 3.14159;
+$c['db'] = new PDO(
+    'mysql:dbname=mydb;host=localhost',
+    'user',
+    'password'
+);
+```
+
+Get things out from container:
+
+```php
+$c['pi'];  // 3.14159
+$c['db'];  // object(PDO)
