@@ -24,7 +24,6 @@ class Container implements \ArrayAccess
     public function singleton($name, $service)
     {
         $this->checkServiceName($name);
-
         $this->checkDuplicatedName($name);
 
         $this->services[$name] = $service;
