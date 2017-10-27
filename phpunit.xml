@@ -15,6 +15,11 @@
         </testsuite>
     </testsuites>
 
+
+    <logging>
+        <log type="coverage-html" target="./coverage" lowUpperBound="50" highLowerBound="80"/>
+    </logging>
+
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
