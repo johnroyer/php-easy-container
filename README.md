@@ -70,3 +70,10 @@ $c['db'] = function () {
 $c->get('db');  // new PDO if and only if someone get it
                 // object(PDO)
 ```
+
+
+
+
+## Provide
+
+Container can contains things with states, can also contains things stateless. `provide()` method stores bussiness logic or workflow which is stateless.
