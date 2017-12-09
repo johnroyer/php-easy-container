@@ -24,7 +24,6 @@ class Container implements \ArrayAccess
     public function singleton($name, $service)
     {
         $this->checkServiceName($name);
-
         $this->checkDuplicatedName($name);
 
         $this->services[$name] = $service;
@@ -168,7 +167,7 @@ class Container implements \ArrayAccess
      */
     public function offsetSet($offset, $value)
     {
-        $this->provide($offset, $value);
+        $this->singleton($offset, $value);
     }
 
     /**
