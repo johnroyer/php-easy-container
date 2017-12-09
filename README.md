@@ -77,3 +77,15 @@ $c->get('db');  // new PDO if and only if someone get it
 ## Provide
 
 Container can contains things with states, can also contains things stateless. `provide()` method stores bussiness logic or workflow which is stateless.
+
+```php
+$c->provide('pi', 3.14159265359);
+$c['pi'];  // 3.14159265359
+
+$c->provide('nowDate', function() {
+    // always return special format of date
+    return (new DateTime())
+        ->format('Y-m-d');
+});
+$c->['nowDate'];  // "2017-12-01"
+```
