@@ -147,6 +147,6 @@ class ContainerTest extends TestCase
             return new \DateTimeImmutable;
         };
 
-        $this->assertTrue($this->container->hasProvider('date'));
+        $this->assertTrue($this->container->hasService('date'));
     }
 }
