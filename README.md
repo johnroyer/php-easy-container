@@ -10,6 +10,14 @@ An implement for singleton and some features.
 
 - PHP >= 5.6
 
+## Installation
+
+using composer:
+
+```bash
+composer require johnroyer/php-easy-container
+```
+
 
 ## Simple Usage
 
