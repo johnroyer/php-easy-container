@@ -61,6 +61,18 @@ $c->singleton('db') = new PDO(
 $c->get('db');  // object(PDO)
 ```
 
+You can also put a global variable into container:
+
+```php
+$c->singleton('config') = new Config(
+    APP_ROOT . '/config'
+);
+
+$c['config']['app.name'];
+```
+
+
+### Late initialize
 
 Sometimes, you are not sure if an DB connection should initialize while program start up. Maybe connect to DB when it is really needed is a better idea.
 
