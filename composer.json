@@ -1,5 +1,6 @@
 {
     "name": "johnroyer/php-easy-container",
+    "description": "an easy composer",
     "type": "library",
     "license": "MIT",
     "authors": [
