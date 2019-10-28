@@ -9,12 +9,12 @@ class ContainerTest extends TestCase
 {
     protected $container = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->container = new Container();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->container = null;
     }
