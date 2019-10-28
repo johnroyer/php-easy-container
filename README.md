@@ -62,8 +62,8 @@ Use a `Closure` to let container known you want to initialize later:
 $c['db'] = function () {
     return new PDO(
         'mysql:dbname=test;host=localhost',
-        'johnroyer',
-        'Zer0p!exl,'
+        'user',
+        'password'
     );
 };
 
