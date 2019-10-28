@@ -22,9 +22,9 @@ class ContainerTest extends TestCase
     public function testServiceCheckerWithInvalidName()
     {
         $this->expectException(
-            \InvalidArgumentException::class,
-            $this->container->checkServiceName('')
+            \InvalidArgumentException::class
         );
+        $this->container->checkServiceName('');
     }
 
     public function testIfServiceExists()
@@ -40,9 +40,9 @@ class ContainerTest extends TestCase
     public function testGettingNotExistsService()
     {
         $this->expectException(
-            \RuntimeException::class,
-            $this->container->get('not-exists')
+            \RuntimeException::class
         );
+        $this->container->get('not-exists');
     }
 
     public function testRegisterSingletonClosure()
@@ -56,14 +56,17 @@ class ContainerTest extends TestCase
         return $this->container;
     }
 
+    /**
+     * @depends testRegisterSingletonClosure
+     */
     public function testRegisterDuplecatedName($container)
     {
         $this->expectException(
-            \RuntimeException::class,
-            $container->singleton('echo', function () {
-                return;
-            })
+            \RuntimeException::class
         );
+        $container->singleton('echo', function () {
+            return;
+        });
     }
 
     /**
