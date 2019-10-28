@@ -19,12 +19,12 @@ class ContainerTest extends TestCase
         $this->container = null;
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testServiceCheckerWithInvalidName()
     {
-        $this->container->checkServiceName('');
+        $this->expectedException(
+            \InvalidArgumentException,
+            $this->container->checkServiceName('')
+        );
     }
 
     public function testIfServiceExists()
@@ -37,12 +37,12 @@ class ContainerTest extends TestCase
         $this->assertSame(false, $this->container->hasProvider('not-exists'));
     }
 
-    /**
-     * @expectedException \RuntimeException
-     */
     public function testGettingNotExistsService()
     {
-        $this->container->get('not-exists');
+        $this->expectedException(
+            \RuntimeException,
+            $this->container->get('not-exists')
+        );
     }
 
     public function testRegisterSingletonClosure()
@@ -58,14 +58,14 @@ class ContainerTest extends TestCase
 
     /**
      * @depends testRegisterSingletonClosure
-     *
-     * @expectedException \RuntimeException
      */
     public function testRegisterDuplecatedName($container)
     {
-        $container->singleton('echo', function () {
-            return;
-        });
+        $this->expectedException(
+            \RuntimeException,
+            $container->singleton('echo', function () {
+            })
+        );
     }
 
     /**
